@@ -24,13 +24,15 @@ import java.util.Map;
  */
 public class Task3 {
     private static final List<String> strings = List.of
-            ("Анна=4", "Елена=5", "Марина=6", "Полина=?",
+            ("Анна=4", "Елена=5", "Марина=*", "Полина=?",
                     "Владимир=?", "Константин=?", "Иван=4");
 //для проверки, заменить какое-то из значений на null
 
     public static void main(String[] args) {
         writeTiFile(strings,"task3.txt");
         System.out.println(parseValue("task3.txt"));
+        reWrite(filePath);
+
     }
     public static Map<String,Integer> parseValue(String filePath){
         Map<String,Integer> current=new HashMap<String,Integer>();
@@ -87,5 +89,13 @@ public class Task3 {
             }
         }
 
+    }
+    public static void reWrite(String filePath){
+        Map<String,Integer> data=parseValue(filePath);
+        List<String> preparedData =new ArrayList<String>;
+        for(Map.Entry<String,Integer> entry: data.entrySet()){
+            preparedData.add(data,filePath)
+        }
+        writeTiFile(preparedData,filePath);
     }
 }
